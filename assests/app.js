@@ -87,10 +87,10 @@ const listPlayers = () => {
   playersList.innerHTML = "";
 
   jogadoras.forEach(jogadora => {
-    const cardJogadoras = document.createElement("div");
-    cardJogadoras.classList.add('cardJogadora')
+    const cardPlayers = document.createElement("div");
+    cardPlayers.classList.add('cardJogadora')
 
-    cardJogadoras.innerHTML = `
+    cardPlayers.innerHTML = `
     <img src = "${jogadora.foto}" >
     <p>${jogadora.nome} </p>
     <p>${jogadora.posicao} </p>
