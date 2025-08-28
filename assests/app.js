@@ -100,6 +100,6 @@ const listPlayers = () => {
     <button>Apagar</button> 
     <button>Excluir</button> `
 
-    playersList.append(cardJogadoras)
+    playersList.append(cardPlayers)
   });
 }
