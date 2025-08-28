@@ -51,17 +51,11 @@ const jogadoras = [
   }
 ]
 
-
 window.onload = listPlayers();
-
 const button = document.querySelector("#playerPost")
 button.addEventListener('click', addPlayer)
 
-
-
-
-
-function addPlayer() {
+const addPlayer = () => {
   const namePlayer = document.querySelector('#namePlayer').value;
   const playerTeam = document.querySelector('#playerTeam').value;
   const playerPicture = document.querySelector('#playerPicture').value;
@@ -70,7 +64,6 @@ function addPlayer() {
   const playerPostion = document.querySelector('#playerPostion').value;
   const favorite = document.querySelector('#favorite').value;
   const playerGames = document.querySelector('#playerGames').value;
-
 
   const player = {
     nome: namePlayer,
@@ -83,22 +76,13 @@ function addPlayer() {
     favorita: favorite,
   }
 
-
-
   jogadoras.unshift(player);
   document.querySelector("#playerForm").reset();
-
   listPlayers();
-
 }
 
-
-
-
-
-
 //Read
-function listPlayers() {
+const listPlayers = () => {
   const playersList = document.querySelector(".players-list");
   playersList.innerHTML = "";
 
@@ -114,11 +98,8 @@ function listPlayers() {
     <p>${jogadora.clube} </p>
     <p>${jogadora.gols} </p>
     <button>Apagar</button> 
-    <button>Excluir</button> 
-    `
-
+    <button>Excluir</button> `
 
     playersList.append(cardJogadoras)
   });
-
 }

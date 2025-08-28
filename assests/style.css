@@ -3,21 +3,15 @@
     margin: 0;
     padding: 0;
 }
-
 body {
     width: 1120px;
     margin: 0 auto;
 }
-
-.players-list {
+.playersList{
     display: flex;
     gap: 20px;
 }
-
-
-
-
-.cardJogadora {
+.cardPlayer {
     display: flex;
     width: 500px;
     height: 500px;
