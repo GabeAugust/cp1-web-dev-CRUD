@@ -50,3 +50,75 @@ const jogadoras = [
     "favorita": false
   }
 ]
+
+
+window.onload = listPlayers();
+
+const button = document.querySelector("#playerPost")
+button.addEventListener('click', addPlayer)
+
+
+
+
+
+function addPlayer() {
+  const namePlayer = document.querySelector('#namePlayer').value;
+  const playerTeam = document.querySelector('#playerTeam').value;
+  const playerPicture = document.querySelector('#playerPicture').value;
+  const playerAssists = document.querySelector('#playerAssists').value
+  const playerGoals = document.querySelector('#playerGoals').value;
+  const playerPostion = document.querySelector('#playerPostion').value;
+  const favorite = document.querySelector('#favorite').value;
+  const playerGames = document.querySelector('#playerGames').value;
+
+
+  const player = {
+    nome: namePlayer,
+    posicao: playerPostion,
+    clube: playerTeam,
+    foto: playerPicture,
+    gols: playerGoals,
+    assistencias: playerAssists,
+    jogos: playerGames,
+    favorita: favorite,
+  }
+
+
+
+  jogadoras.unshift(player);
+  document.querySelector("#playerForm").reset();
+
+  listPlayers();
+
+}
+
+
+
+
+
+
+//Read
+function listPlayers() {
+  const playersList = document.querySelector(".players-list");
+  playersList.innerHTML = "";
+
+  jogadoras.forEach(jogadora => {
+    const cardJogadoras = document.createElement("div");
+    cardJogadoras.classList.add('cardJogadora')
+
+    cardJogadoras.innerHTML = `
+    <img src = "${jogadora.foto}" >
+    <p>${jogadora.nome} </p>
+    <p>${jogadora.posicao} </p>
+    <p>${jogadora.assistencias} </p>
+    <p>${jogadora.clube} </p>
+    <p>${jogadora.gols} </p>
+    <button>Apagar</button> 
+    <button>Excluir</button> 
+    `
+
+
+    playersList.append(cardJogadoras)
+  });
+
+}

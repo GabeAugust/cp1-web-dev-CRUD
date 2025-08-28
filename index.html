@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assests/style.css">
 
 </head>
+
 <body>
-    
+    <form id="playerForm">
+        <label>Nome da Jogadora</label><br>
+        <input id="namePlayer" type="text" placeholder="Insira o nome da Jogadora aqui"><br>
+        <label>Nome do Clube</label><br>
+        <input id="playerTeam" type="text" placeholder="Insira o nome do Clube"><br>
+        <label>Foto da Jogadora</label><br>
+        <input id="playerPicture" type="text" placeholder="Insira a url aqui"><br>
+        <label>Assistencias da Jogadora</label><br>
+        <input id="playerAssists" type="text" placeholder="Insira o numero de Assistencias da Jogadora"><br>
+        <label>Gols</label><br>
+        <input id="playerGoals" type="text" placeholder="Insira o numero de gols da jogadora"><br>
+        <label>Posição</label><br>
+        <input id="playerPostion" type="text" placeholder="Insira a url aqui"><br>
+        <label>Quantidade de Jogos</label><br>
+        <input id="playerGames" type="text" placeholder="Insira o numero de Jogos"><br>
+        <label>Ela é favorita</label><br>
+        <label>
+            Sim <input id="favorite" type="radio" id="check" name="favorite" value="true">
+        </label>
+
+        <label>
+            Não <input type="radio" id="check" name="favorite" value="false">
+        </label> <br>
+
+        <button id="playerPost" type="button" style="width: 50px; height: 20px;">Enviar</button>
+    </form>
+
+
+    <div class="players-list"></div>
 </body>
 <script src="assests/app.js"></script>
+
 </html>
