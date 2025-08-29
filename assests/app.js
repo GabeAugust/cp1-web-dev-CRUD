@@ -51,10 +51,6 @@ const jogadoras = [
   }
 ]
 
-window.onload = listPlayers();
-const button = document.querySelector("#playerPost")
-button.addEventListener('click', addPlayer)
-
 const addPlayer = () => {
   const namePlayer = document.querySelector('#namePlayer').value;
   const playerTeam = document.querySelector('#playerTeam').value;
@@ -83,23 +79,75 @@ const addPlayer = () => {
 
 //Read
 const listPlayers = () => {
-  const playersList = document.querySelector(".players-list");
-  playersList.innerHTML = "";
+  const playersList = document.querySelector(".playersList");
+  playersList.innerHTML = " ";
 
-  jogadoras.forEach(jogadora => {
+
+
+  jogadoras.forEach((jogadora, index) => {
     const cardPlayers = document.createElement("div");
-    cardPlayers.classList.add('cardJogadora')
+    cardPlayers.classList.add('cardPlayer')
 
     cardPlayers.innerHTML = `
-    <img src = "${jogadora.foto}" >
+    <img src ="${jogadora.foto}" >
     <p>${jogadora.nome} </p>
     <p>${jogadora.posicao} </p>
     <p>${jogadora.assistencias} </p>
     <p>${jogadora.clube} </p>
     <p>${jogadora.gols} </p>
-    <button>Apagar</button> 
-    <button>Excluir</button> `
+    <button data-action="delete" data-index="${index}"> Apagar </button> 
+    <button data-action="edit" data-index="${index}"> Editar </button> `
 
     playersList.append(cardPlayers)
   });
 }
+
+
+
+const handleCardClick = (event) => {
+  const clickedElement = event.target.closest("button");
+
+  if (!clickedElement) return;
+
+    const action = clickedElement.dataset.action;
+    const index = clickedElement.dataset.index;
+
+
+    if (action === "edit") {
+        editPlayer(index);
+    } else if (action === "delete") {
+        deletePlayer(index);
+  }
+}
+
+
+const editPlayer = (index) => {
+
+  const novoNome = prompt("Editar post:", jogadoras[index].nome);
+
+    if (novoNome !== null) {
+        jogadoras[index].nome = novoNome;
+        listPlayers();
+    }
+}
+
+const deletePlayer = (index) =>{
+  const confirm = window.confirm("Tem certeza que deseja apagar este post?");
+
+  if (confirm) {
+      jogadoras.splice(index, 1);
+      listPlayers();
+  }
+
+}
+
+
+window.onload = () =>{
+  listPlayers();
+  document.querySelector('.playersList').addEventListener('click', handleCardClick);
+
+};
+
+
+const button = document.querySelector("#playerPost");
+button.addEventListener('click', addPlayer);
