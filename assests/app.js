@@ -89,14 +89,45 @@ const listPlayers = () => {
     cardPlayers.classList.add('cardPlayer')
 
     cardPlayers.innerHTML = `
-    <img src ="${jogadora.foto}" >
-    <p>${jogadora.nome} </p>
-    <p>${jogadora.posicao} </p>
-    <p>${jogadora.assistencias} </p>
-    <p>${jogadora.clube} </p>
-    <p>${jogadora.gols} </p>
-    <button data-action="delete" data-index="${index}"> Apagar </button> 
-    <button data-action="edit" data-index="${index}"> Editar </button> `
+    
+    <div>
+      <img src ="${jogadora.foto}"> 
+      <button class= "buttonEdit" data-section = "image" data-action="edit" data-index="${index}">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button> 
+    </div>
+    <div class = "cardSections">
+      <p>${jogadora.nome} </p> 
+      <button class= "buttonEdit" data-section = "nome" data-action="edit" data-index="${index}">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button> 
+    </div>
+    <div class = "cardSections">
+      <p>${jogadora.posicao} </p>
+      <button class= "buttonEdit" data-section = "posicao" data-action="edit" data-index="${index}">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button> 
+    </div>
+    <div class = "cardSections">
+      <p>${jogadora.assistencias} </p>
+      <button class= "buttonEdit" data-section = "assistencias" data-action="edit" data-index="${index}">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button> 
+    </div>
+    <div class = "cardSections">
+       <p>${jogadora.clube} </p>
+      <button class= "buttonEdit" data-section = "clube" data-action="edit" data-index="${index}">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button> 
+    </div>
+    <div class = "cardSections">
+      <p>${jogadora.gols} </p>
+      <button class= "buttonEdit" data-section = "gols" data-action="edit" data-index="${index}">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button> 
+    </div>
+  
+    <button data-action="delete" data-index="${index}"> Apagar </button>`
 
     playersList.append(cardPlayers)
   });
@@ -109,40 +140,99 @@ const handleCardClick = (event) => {
 
   if (!clickedElement) return;
 
-    const action = clickedElement.dataset.action;
-    const index = clickedElement.dataset.index;
+  const action = clickedElement.dataset.action;
+  const index = clickedElement.dataset.index;
+  const section = clickedElement.dataset.section;
 
-
-    if (action === "edit") {
-        editPlayer(index);
-    } else if (action === "delete") {
-        deletePlayer(index);
+  if (action === "edit") {
+    editPlayer(index, section);
+  } else if (action === "delete") {
+    deletePlayer(index);
   }
 }
 
 
-const editPlayer = (index) => {
+const editPlayer = (index, section) => {
 
-  const novoNome = prompt("Editar post:", jogadoras[index].nome);
+  let novoCampo = "";
 
-    if (novoNome !== null) {
-        jogadoras[index].nome = novoNome;
+
+
+  switch (section) {
+    case "clube":
+      novoCampo = prompt("Editar Clube:", jogadoras[index].clube)
+      if (novoCampo !== null) {
+        jogadoras[index].clube = novoCampo;
         listPlayers();
-    }
+      }
+      break;
+
+    case "nome":
+      novoCampo = prompt("Editar Nome:", jogadoras[index].nome)
+      if (novoCampo !== null) {
+        jogadoras[index].nome = novoCampo;
+        listPlayers();
+      }
+
+      break;
+
+    case "posicao":
+      novoCampo = prompt("Editar Posição:", jogadoras[index].posicao)
+      if (novoCampo !== null) {
+        jogadoras[index].posicao = novoCampo;
+        listPlayers();
+      }
+
+      break;
+
+    case "assistencias":
+      novoCampo = prompt("Editar N° de Asistencias:", jogadoras[index].assistencias)
+      if (novoCampo !== null) {
+        jogadoras[index].assistencias = novoCampo;
+        listPlayers();
+      }
+
+      break;
+
+    case "gols":
+      novoCampo = prompt("Editar N° de gols:", jogadoras[index].gols)
+      if (novoCampo !== null) {
+        jogadoras[index].gols = novoCampo;
+        listPlayers();
+      }
+
+      break;
+
+    case "image":
+      novoCampo = prompt("Editar imagem(url):", jogadoras[index].foto)
+      if (novoCampo !== null) {
+        jogadoras[index].foto = novoCampo;
+        listPlayers();
+      }
+      break;
+
+    default:
+      alert("Erro")
+      break;
+
+
+  }
+
+
 }
 
-const deletePlayer = (index) =>{
+const deletePlayer = (index) => {
   const confirm = window.confirm("Tem certeza que deseja apagar este post?");
 
   if (confirm) {
-      jogadoras.splice(index, 1);
-      listPlayers();
+    jogadoras.splice(index, 1);
+    listPlayers();
   }
 
 }
 
 
-window.onload = () =>{
+window.onload = () => {
   listPlayers();
   document.querySelector('.playersList').addEventListener('click', handleCardClick);
 

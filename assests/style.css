@@ -19,4 +19,18 @@ body {
     justify-content: center;
     align-items: center;
     background-color: aqua;
+    gap: 10px;
+}
+.buttonEdit {
+    border: none;
+    background: transparent;
+}
+
+.cardSections{
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
 }
