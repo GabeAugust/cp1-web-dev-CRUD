@@ -1,36 +1,35 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 body {
-    width: 1120px;
-    margin: 0 auto;
+  width: 1120px;
+  margin: 0 auto;
 }
-.playersList{
-    display: flex;
-    gap: 20px;
+.playersList {
+  display: flex;
+  gap: 20px;
 }
 .cardPlayer {
-    display: flex;
-    width: 500px;
-    height: 500px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: aqua;
-    gap: 10px;
+  display: flex;
+  width: 500px;
+  height: 500px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: aqua;
+  gap: 10px;
 }
 .buttonEdit {
-    border: none;
-    background: transparent;
+  border: none;
+  background: transparent;
 }
 
-.cardSections{
-    width: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-
+.cardSections {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
