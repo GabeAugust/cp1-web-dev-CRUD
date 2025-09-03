@@ -1,4 +1,4 @@
-const jogadoras = [
+let jogadoras = [
   {
     nome: "Andressa Alves",
     posicao: "Meio-campo",
@@ -73,6 +73,8 @@ const addPlayer = () => {
   };
 
   jogadoras.unshift(player);
+  savePlayers();
+
   document.querySelector("#playerForm").reset();
   listPlayers();
 };
@@ -125,7 +127,15 @@ const listPlayers = () => {
       </button> 
     </div>
   
-    <button data-action="delete" data-index="${index}"> Apagar </button>`;
+    <button data-action="delete" data-index="${index}"> Apagar </button>
+    <button id="favorite" class= "buttonEdit" data-action="favorite" data-index="${index}">
+     ${
+       jogadora.favorita
+         ? `<i class="fa-solid fa-heart"></i>`
+         : `<i class="fa-regular fa-heart"></i>`
+     }
+    </button>
+    `;
 
     playersList.append(cardPlayers);
   });
@@ -144,6 +154,8 @@ const handleCardClick = (event) => {
     editPlayer(index, section);
   } else if (action === "delete") {
     deletePlayer(index);
+  } else if (action === "favorite") {
+    favoritePlayer(index);
   }
 };
 
@@ -155,6 +167,7 @@ const editPlayer = (index, section) => {
       novoCampo = prompt("Editar Clube:", jogadoras[index].clube);
       if (novoCampo !== null) {
         jogadoras[index].clube = novoCampo;
+        savePlayers();
         listPlayers();
       }
       break;
@@ -163,6 +176,7 @@ const editPlayer = (index, section) => {
       novoCampo = prompt("Editar Nome:", jogadoras[index].nome);
       if (novoCampo !== null) {
         jogadoras[index].nome = novoCampo;
+        savePlayers();
         listPlayers();
       }
 
@@ -172,6 +186,7 @@ const editPlayer = (index, section) => {
       novoCampo = prompt("Editar Posição:", jogadoras[index].posicao);
       if (novoCampo !== null) {
         jogadoras[index].posicao = novoCampo;
+        savePlayers();
         listPlayers();
       }
 
@@ -184,6 +199,7 @@ const editPlayer = (index, section) => {
       );
       if (novoCampo !== null) {
         jogadoras[index].assistencias = novoCampo;
+        savePlayers();
         listPlayers();
       }
 
@@ -193,6 +209,7 @@ const editPlayer = (index, section) => {
       novoCampo = prompt("Editar N° de gols:", jogadoras[index].gols);
       if (novoCampo !== null) {
         jogadoras[index].gols = novoCampo;
+        savePlayers();
         listPlayers();
       }
 
@@ -202,6 +219,7 @@ const editPlayer = (index, section) => {
       novoCampo = prompt("Editar imagem(url):", jogadoras[index].foto);
       if (novoCampo !== null) {
         jogadoras[index].foto = novoCampo;
+        savePlayers();
         listPlayers();
       }
       break;
@@ -217,12 +235,33 @@ const deletePlayer = (index) => {
 
   if (confirm) {
     jogadoras.splice(index, 1);
+    savePlayers();
     listPlayers();
   }
 };
 
-window.onload = () => {
+const favoritePlayer = (index) => {
+  jogadoras[index].favorita = !jogadoras[index].favorita;
+  savePlayers();
   listPlayers();
+};
+
+const savePlayers = () => {
+  localStorage.setItem("player", JSON.stringify(jogadoras));
+};
+
+
+const loadPlayers = () => {
+  const storedPlayers = localStorage.getItem("player");
+  if (storedPlayers) {
+    jogadoras = JSON.parse(storedPlayers);
+  }
+};
+
+window.onload = () => {
+  loadPlayers();
+  listPlayers();
+
   document
     .querySelector(".playersList")
     .addEventListener("click", handleCardClick);
