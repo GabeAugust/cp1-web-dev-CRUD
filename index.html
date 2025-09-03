@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CRUD</title>
     <link rel="stylesheet" href="./assests/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -15,63 +21,52 @@
           id="namePlayer"
           type="text"
           placeholder="Insira o nome da Jogadora aqui"
-        /><br />
-        <label>Nome do Clube</label><br />
-        <input
-          id="playerTeam"
-          type="text"
-          placeholder="Insira o nome do Clube"
-        /><br />
-        <label>Foto da Jogadora</label><br />
-        <input
-          id="playerPicture"
-          type="text"
-          placeholder="Insira a url aqui"
-        /><br />
-        <label>Assistencias da Jogadora</label><br />
-        <input
-          id="playerAssists"
-          type="text"
-          placeholder="Insira o numero de Assistencias da Jogadora"
-        /><br />
-        <label>Gols</label><br />
-        <input
-          id="playerGoals"
-          type="text"
-          placeholder="Insira o numero de gols da jogadora"
+          required
         /><br />
         <label>Posição</label><br />
         <input
           id="playerPostion"
           type="text"
           placeholder="Insira a url aqui"
+          required
         /><br />
-        <label>Quantidade de Jogos</label><br />
+        <label>Imagem do Clube</label><br />
+        <input
+          id="playerTeam"
+          type="text"
+          placeholder="Insira o nome do Clube"
+          required
+        /><br />
+        <label>Imagem da Jogadora</label><br />
+        <input
+          id="playerPicture"
+          type="text"
+          placeholder="Insira a url aqui"
+          required
+        /><br />
+        <label>Qnt. Gols</label><br />
+        <input
+          id="playerGoals"
+          type="text"
+          placeholder="Insira o numero de gols da jogadora"
+          required
+        /><br />
+        <label>Qnt. Assistências</label><br />
+        <input
+          id="playerAssists"
+          type="text"
+          placeholder="Insira o numero de Assistencias da Jogadora"
+          required
+        /><br />
+
+        <label>Qnt. Jogos</label><br />
         <input
           id="playerGames"
           type="text"
           placeholder="Insira o numero de Jogos"
+          required
         /><br />
-        <label>Ela é favorita</label><br />
-        <label>
-          Sim
-          <input
-            id="favorite"
-            type="radio"
-            id="check"
-            name="favorite"
-            value="true"
-          />
-        </label>
-
-        <label>
-          Não <input type="radio" id="check" name="favorite" value="false" />
-        </label>
-        <br />
-
-        <button id="playerPost" type="button" style="width: 50px; height: 20px">
-          Enviar
-        </button>
+        <button id="playerPost" type="submit">Enviar</button>
       </form>
 
       <div class="playersList"></div>
