@@ -100,7 +100,12 @@ const listPlayers = () => {
         <img src="${jogadora.foto}" class="playerImage"> 
         <p class="playerPosition"> ${jogadora.posicao} </p>
         <img src="${jogadora.clube}" class="playerTeam">
-        <p class="playerName">${jogadora.nome.toUpperCase()} </p>
+        <p class="playerName">
+          ${jogadora.nome.toUpperCase()} 
+          <button class="buttonEdit" data-section="nome" data-action="edit" data-index="${index}">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button> 
+        </p>
     </div>
     <div class="playerStatistics">
         <p> <strong> Jogos: </strong> ${jogadora.jogos}  
