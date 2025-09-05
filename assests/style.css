@@ -76,6 +76,7 @@ body {
   & p {
     flex-basis: 50%;
     font-size: 13px;
+    
   }
 
   & button {
@@ -92,6 +93,8 @@ body {
   border: none;
   background: transparent;
   cursor: pointer;
+  position: absolute;
+  z-index: 9;
 }
 
 .cardInfo {

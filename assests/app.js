@@ -104,12 +104,14 @@ const listPlayers = () => {
     </div>
     <div class="playerStatistics">
         <p> <strong> Jogos: </strong> ${jogadora.jogos}  
-         
+         <button class="buttonEdit" data-section="jogos" data-action="edit" data-index="${index}">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>  
         </p>
         <p> <strong> Gols: </strong> ${jogadora.gols} 
-          <button class="buttonEdit" data-section="gols" data-action="edit" data-index="${index}">
+         <button class="buttonEdit" data-section="gols" data-action="edit" data-index="${index}">
             <i class="fa-solid fa-pen-to-square"></i>
-          </button> 
+          </button>   
         </p>
         <p> <strong> Assis.: </strong> ${jogadora.assistencias}  
           <button class="buttonEdit" data-section="assistencias" data-action="edit" data-index="${index}">
@@ -132,6 +134,14 @@ const editPlayer = (index, section) => {
       novoCampo = prompt("Editar Clube:", PLAYERS[index].clube);
       if (novoCampo !== null) {
         PLAYERS[index].clube = novoCampo;
+        listPlayers();
+      }
+      break;
+    
+     case "jogos":
+      novoCampo = prompt("Editar Jogos:", PLAYERS[index].jogos);
+      if (novoCampo !== null) {
+        PLAYERS[index].jogos = novoCampo;
         listPlayers();
       }
       break;
