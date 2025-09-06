@@ -78,3 +78,8 @@ Cada jogadora é representada como um objeto:
     - Estatísticas: jogos, gols e assistências
 
     - Botões para editar, excluir e favoritar
+
+
+## Integrantes
+- RM564126 - Gabriel Pereira 
+- RM563986 - Bruno Henrinque 
