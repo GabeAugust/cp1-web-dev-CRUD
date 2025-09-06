@@ -1,0 +1,225 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 1120px;
+  margin: 0 auto;
+  font-family: "Open Sans", sans-serif;
+  background-image: url("https://cdn.wallpapersafari.com/27/37/QzdCrh.jpg");
+  background-size: cover;
+}
+
+main {
+  text-align: center;
+  margin: 50px;
+}
+
+h1 {
+  color: #ffff;
+  font-weight: 800;
+  margin: 30px 0px;
+}
+
+.logo-fifa {
+  width: 120px;
+}
+
+#playerForm {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+
+  & input {
+    width: 50%;
+    height: 40px;
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+  }
+
+  & input:focus {
+    outline: none;
+    border: none;
+  }
+
+  & label {
+    font-weight: 600;
+    color: #fff;
+    text-align: left;
+    width: 50%;
+  }
+
+  & button {
+    background: linear-gradient(90deg, #28a745, #34d058);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.8em 2em;
+    border: none;
+    border-radius: 2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0.4em 0.8em rgba(0, 0, 0, 0.25);
+    letter-spacing: 0.05em;
+    margin-top: 10px;
+  }
+
+  & button:hover {
+    background: linear-gradient(90deg, #34d058, #28a745);
+    transform: scale(1.05);
+    box-shadow: 0 0.6em 1.2em rgba(0, 0, 0, 0.3);
+  }
+}
+
+.playersListSection {
+  margin-top: 80px;
+}
+
+.playersList {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 1200px;
+}
+
+.cardPlayer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 260px;
+  height: 350px;
+  gap: 10px;
+  background-image: url("https://public-files.gumroad.com/82o4k9knrmlyhy3y3wt719q901wy");
+  background-size: cover;
+  position: relative;
+}
+
+.cardPlayer:hover {
+  transform: scale(1.02);
+}
+
+.playerImage {
+  max-width: 180px;
+  top: 0px;
+  position: absolute;
+}
+
+.playerTeam {
+  width: 26px;
+  left: 39px;
+  top: 65px;
+  position: absolute;
+}
+
+.playerPosition {
+  left: 41px;
+  top: 45px;
+  position: absolute;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.playerInfo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 110px;
+}
+
+.playerName {
+  font-weight: 700;
+  font-size: 15px;
+  margin-right: 4px;
+}
+
+.playerStatistics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  padding: 0px 20px;
+  gap: 5px 0px;
+
+  & p {
+    flex-basis: 50%;
+    font-size: 13px;
+  }
+
+  & button {
+    cursor: pointer;
+  }
+
+  & p:nth-last-child() {
+    flex-grow: 1;
+  }
+}
+
+.buttonDelete {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  font-size: 20px;
+  color: #dc3545;
+  bottom: 35px;
+  left: 115px;
+}
+
+.buttonFavorite {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  font-size: 28px;
+  top: 12px;
+  right: 20px;
+  color: #FFD700;
+}
+
+.buttonEdit {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  margin-left: 5px;
+}
+
+.buttonEditImagePlayer {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  left: 60px;
+  top: 170px;
+}
+
+.buttonEditPlayerTeam {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  left: 70px;
+  top: 70px;
+}
+
+.cardInfo {
+  display: flex;
+  width: 300px;
+  flex-wrap: wrap;
+}
+
+.cardSections {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
